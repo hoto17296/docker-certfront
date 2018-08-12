@@ -9,7 +9,7 @@ NGINX_CONF=/etc/nginx.conf
 
 cp /etc/nginx.conf.template ${NGINX_CONF}
 sed -i -e "s/DOMAIN/${DOMAIN}/g" ${NGINX_CONF}
-sed -i -e "s/UPSTREAM_HOST/${APP_HOST}/g" ${NGINX_CONF}
-sed -i -e "s/UPSTREAM_PORT/${APP_PORT:-80}/g" ${NGINX_CONF}
+sed -i -e "s/APP_HOST/${APP_HOST}/g" ${NGINX_CONF}
+sed -i -e "s/APP_PORT/${APP_PORT:-80}/g" ${NGINX_CONF}
 
 nginx -c ${NGINX_CONF}
