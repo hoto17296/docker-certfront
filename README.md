@@ -1,6 +1,8 @@
 # CertFront
 Publish your web application with full managed SSL certificate.
 
+![](image.png)
+
 ## Features
 - Automatically issue and renew SSL certificate, powered by Certbot.
 - Accept HTTP (port 80) request and redirect to HTTPS.
@@ -29,7 +31,7 @@ services:
       - wordpress
 
   wordpress:
-    image: wordpress
+    image: wordpress:4
     environment:
       WORDPRESS_DB_HOST: mysql
     volumes:
