@@ -10,6 +10,9 @@ RUN apk add --no-cache --virtual .build-deps \
     && pip3 install --no-cache-dir certbot \
     && apk del .build-deps
 
+RUN echo -e '#!/bin/sh\n\ncertbot renew' > /etc/periodic/monthly/renew.sh \
+    && chmod +x /etc/periodic/monthly/renew.sh
+
 RUN rm -rf /etc/nginx
 
 COPY run.sh /

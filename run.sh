@@ -12,4 +12,5 @@ sed -i -e "s/DOMAIN/${DOMAIN}/g" ${NGINX_CONF}
 sed -i -e "s/APP_HOST/${APP_HOST}/g" ${NGINX_CONF}
 sed -i -e "s/APP_PORT/${APP_PORT:-80}/g" ${NGINX_CONF}
 
+crond
 nginx -c ${NGINX_CONF}
