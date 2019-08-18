@@ -19,6 +19,8 @@ http {
     ssl_certificate /etc/letsencrypt/live/DOMAIN/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/DOMAIN/privkey.pem;
 
+    STATIC_SERVE
+
     location / {
       proxy_redirect off;
 
