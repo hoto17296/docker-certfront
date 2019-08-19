@@ -13,9 +13,9 @@ RUN apk add --no-cache --virtual .build-deps \
 RUN echo -e '#!/bin/sh\n\ncertbot renew' > /etc/periodic/monthly/renew.sh \
     && chmod +x /etc/periodic/monthly/renew.sh
 
-RUN rm -rf /etc/nginx
+RUN rm -rf /etc/nginx/nginx.conf /etc/nginx/conf.d
 
 COPY run.sh /
-COPY nginx.conf.template /etc
+COPY nginx.conf.template /etc/nginx
 
 CMD ["sh", "/run.sh"]

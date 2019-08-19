@@ -5,9 +5,9 @@ else
   certbot renew
 fi
 
-NGINX_CONF=/etc/nginx.conf
+NGINX_CONF=/etc/nginx/nginx.conf
 
-cp /etc/nginx.conf.template ${NGINX_CONF}
+cp /etc/nginx/nginx.conf.template ${NGINX_CONF}
 sed -i -e "s/DOMAIN/${DOMAIN}/g" ${NGINX_CONF}
 sed -i -e "s/APP_HOST/${APP_HOST}/g" ${NGINX_CONF}
 sed -i -e "s/APP_PORT/${APP_PORT:-80}/g" ${NGINX_CONF}
