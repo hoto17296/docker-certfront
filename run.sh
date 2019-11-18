@@ -1,6 +1,6 @@
 if [[ $(certbot certificates -d ${DOMAIN} 2>/dev/null | grep -c "Certificate Name: ${DOMAIN}") -eq 0 ]]
 then
-  certbot certonly --standalone --domain ${DOMAIN} --email ${EMAIL} --agree-tos
+  certbot certonly --webroot --webroot-path /var/www --domain ${DOMAIN} --email ${EMAIL} --agree-tos
 else
   certbot renew
 fi
