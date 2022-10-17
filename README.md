@@ -18,6 +18,8 @@ services:
 
   certfront:
     image: hoto17296/certfront
+    init: true
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -32,6 +34,7 @@ services:
 
   wordpress:
     image: wordpress:4
+    restart: unless-stopped
     environment:
       WORDPRESS_DB_HOST: mysql
     volumes:
@@ -41,6 +44,7 @@ services:
 
   mysql:
     image: mysql:5
+    restart: unless-stopped
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
