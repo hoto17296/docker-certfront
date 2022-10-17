@@ -3,7 +3,7 @@ FROM nginx:alpine
 EXPOSE 80 443
 
 RUN apk add --no-cache --virtual .certbot-deps \
-        python3 libffi openssl ca-certificates
+        python3 py3-pip libffi openssl ca-certificates
 
 RUN apk add --no-cache --virtual .build-deps \
         gcc python3-dev musl-dev libffi-dev openssl-dev \
