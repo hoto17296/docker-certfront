@@ -1,5 +1,7 @@
 FROM nginx:alpine
 
+LABEL org.opencontainers.image.source https://github.com/hoto17296/docker-certfront
+
 EXPOSE 80 443
 
 RUN apk add --no-cache --virtual .certbot-deps \
