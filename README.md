@@ -12,12 +12,10 @@ Publish your web application with full managed SSL certificate.
 Here is an example of running WordPress with custom domain and https.
 
 ``` yaml:docker-compose.yml
-version: '3'
-
 services:
 
   certfront:
-    image: hoto17296/certfront
+    image: ghcr.io/hoto17296/certfront
     init: true
     restart: unless-stopped
     ports:
@@ -33,7 +31,7 @@ services:
       - wordpress
 
   wordpress:
-    image: wordpress:4
+    image: wordpress:6
     restart: unless-stopped
     environment:
       WORDPRESS_DB_HOST: mysql
@@ -43,7 +41,7 @@ services:
       - mysql
 
   mysql:
-    image: mysql:5
+    image: mysql:8
     restart: unless-stopped
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
@@ -54,13 +52,8 @@ volumes:
 
   # The certificate and private key are stored on this volume
   certs:
-    driver: local
-
   app:
-    driver: local
-
   data:
-    driver: local
 ```
 
-Save this to `docker-compose.yml` and run `docker-compose up`, then try to access `https://blog.example.com`.
+Save this to `docker-compose.yml` and run `docker compose up`, then try to access `https://blog.example.com`.
